@@ -1,4 +1,7 @@
-import yaml
+# Getting started example that cleans up after itself.
+# NB: AFAIK the wipe command removes any Kathara lab instance created by
+# this linux user's (i.e. your user) account.
+
 from rich import print
 from Kathara.model.Lab import Lab
 from Kathara.manager.Kathara import Kathara
