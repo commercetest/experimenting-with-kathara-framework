@@ -13,16 +13,12 @@ pc1 = lab.new_machine("pc1")
 pc2 = lab.new_machine("pc2")
 webserver = lab.new_machine("webserver")
 
-# Create router1 with image "kathara/frr"
-router1 = lab.new_machine("router1", **{"image": "kathara/quagga"})
+# Create a router, here using the bird.cz docker image
 birdrouter1 = lab.new_machine("birdrouter1", **{"image": "kathara/bird"})
-
 
 lab.connect_machine_to_link(pc1.name, "A")
 lab.connect_machine_to_link(pc2.name, "A")
 lab.connect_machine_to_link(webserver.name, "B")
-lab.connect_machine_to_link(router1.name, "A")
-lab.connect_machine_to_link(router1.name, "B")
 lab.connect_machine_to_link(birdrouter1.name, "A")
 lab.connect_machine_to_link(birdrouter1.name, "B")
 
