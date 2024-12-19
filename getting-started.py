@@ -47,12 +47,7 @@ lab.create_file_from_list(
 
 Kathara.get_instance().deploy_lab(lab)
 
-#Kathara.get_instance().exec(machine_name="webserver", command="chmod +x /hostlab/webserver.startup", lab=lab)
-#print(Kathara.get_instance().exec(machine_name="webserver", command="/hostlab/webserver.startup", lab_name="kathara-tutorial-three-eleven-two-too"))
-
-# Kathara.get_instance().exec_obj(machine="webserver", command="systemctl apache2 status")
 lab_status = next(Kathara.get_instance().get_machines_stats(lab_name=lab.name))
-# print(yaml.dump(str(lab_status), default_flow_style=False))
 print(lab_status)
 
 Kathara.get_instance().connect_tty(webserver.name, lab_name=lab.name)
