@@ -34,4 +34,12 @@ vim getting-started.py
 python getting-started.py
 ```
 
+Currently two instances of routers are configured with `bird` for routing using static routes over logical network `C` between the `pc` instances in logical network `A` and a `webserver` in logical network `B`. the bird configurations are configured as part of the `getting-started.py` script but `bird` needs starting manually using the CLI on each instance of the bird router machines: `birdrouter1` and `birdrouter2`. Run the command `systemctl start bird` to do so. 
 
+## Troubleshooting
+If/when the python script crashes or fails to complete, various orphaned resources remain in kathara's microcosm locally. These can be removed using the following command: `kathara wipe` and then enter `y` when asked `[y/n]`.
+
+## Interactive testing
+First start bird on both router instances. Then you can run `wget 100.1.3.90` from any running instance on the kathara network to request the default web page from the `webserver`. Running this command should download a copy of `index.html` from the `webserver` to the local folder on the machine you're currently connected to.
+
+There are lots of networking-related commands available to check routing, etc. Some examples will be added shortly.
