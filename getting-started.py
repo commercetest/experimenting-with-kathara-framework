@@ -62,7 +62,7 @@ Kathara.get_instance().deploy_lab(lab)
 
 lab_status = next(Kathara.get_instance().get_machines_stats(lab_name=lab.name))
 print(lab_status)
-
+Kathara.get_instance().connect_tty(birdrouter1.name, lab_name=lab.name)
 Kathara.get_instance().connect_tty(webserver.name, lab_name=lab.name)
 Kathara.get_instance().connect_tty(pc1.name, lab_name=lab.name)
 Kathara.get_instance().connect_tty(birdrouter1.name, lab_name=lab.name)
