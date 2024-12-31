@@ -58,6 +58,7 @@ lab.create_file_from_list(
     [
         "ip address add 100.1.2.1/24 dev eth0",
         "ip address add 10.0.0.1/24 dev eth1",
+        "/usr/local/bin/systemctl start bird",
     ],
     "birdrouter1.startup"
 )
@@ -66,6 +67,7 @@ lab.create_file_from_list(
     [
         "ip address add 100.1.3.1/24 dev eth0",
         "ip address add 10.0.0.2/24 dev eth1",
+        "/usr/local/bin/systemctl start bird",
     ],
     "birdrouter2.startup"
 )
@@ -81,13 +83,6 @@ Kathara.get_instance().connect_tty(birdrouter1.name, lab_name=lab.name)
 Kathara.get_instance().connect_tty(birdrouter2.name, lab_name=lab.name)
 Kathara.get_instance().connect_tty(webserver.name, lab_name=lab.name)
 Kathara.get_instance().connect_tty(pc1.name, lab_name=lab.name)
-Kathara.get_instance().connect_tty(birdrouter1.name, lab_name=lab.name)
-Kathara.get_instance().connect_tty(birdrouter2.name, lab_name=lab.name)
-Kathara.get_instance().connect_tty(webserver.name, lab_name=lab.name)
-Kathara.get_instance().connect_tty(pc1.name, lab_name=lab.name)
-Kathara.get_instance().connect_tty(webserver.name, lab_name=lab.name)
-Kathara.get_instance().connect_tty(pc1.name, lab_name=lab.name)
-
 
 print("Network A follows")
 print(Kathara.get_instance().get_link_stats(lab_name=lab.name, link_name="A"))
